@@ -23,3 +23,5 @@ from tb_aluno alu inner join tb_endereco_aluno ende
 on alu.endereco = ende.codEndereco
 inner join tb_tipo_logradouro logr
 on ende.codtipoLogradouro = logr.codLogradouro;
+
+select * from vw_cadastro_aluno;
