@@ -1,14 +1,14 @@
 const express = require('express')
+const connection = require('./database/connection')
 
 const routes = express.Router()
 
 
-routes.get('/cadastro_aluno', (req,res) => {
+routes.get('/cadastro_aluno', async (req,res) => {
 
-    return res.json({
-        "aluno": "Jorge Pereira Junior",
-        "email": "teste@gmail.com"
-    })
+    const cad_aluno = await connection('vw_cadastro_aluno').select('*')
+
+    return res.json(cad_aluno)
 })
 
 module.exports = routes
