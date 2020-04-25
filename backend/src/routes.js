@@ -1,22 +1,20 @@
 const express = require('express')
-const connection = require('./database/connection')
 
+const DepartmentController = require('./controllers/DepartmentController')
+const DisciplineController = require('./controllers/DisciplineController')
+const StudentController = require('./controllers/StudentController')
 const routes = express.Router()
 
 
-routes.get('/studentspd', async (req,res) => {
+// ROTAS PARA ACESSO À TABELA DE ALUNOS E SEUS DADOS
+routes.get('/studentspd', StudentController.list)
 
-    const studentpd = await connection('vw_listSudentsPD').select('*')
+// ROTAS PARA ACESSO À TABELA DE DISCIPLINAS
+routes.get('/disciplinesbasic', DisciplineController.list)
 
-    return res.json(studentpd)
-})
+// ROTAS PARA ACESSO À TABELA DE DEPARTAMENTOS
+routes.get('/depts', DepartmentController.list)
+routes.post('/depts', DepartmentController.create)
 
-routes.get('/disciplinesbasic', async (req,res) => {
-
-    const disciplinesbasic = await connection('vw_disciplinesBasic')
-    .select('*')
-
-    return res.json(disciplinesbasic)
-})
 
 module.exports = routes
