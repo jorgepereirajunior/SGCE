@@ -4,11 +4,19 @@ const connection = require('./database/connection')
 const routes = express.Router()
 
 
-routes.get('/cadastro_aluno', async (req,res) => {
+routes.get('/studentspd', async (req,res) => {
 
-    const cad_aluno = await connection('vw_cadastro_aluno').select('*')
+    const studentpd = await connection('vw_listSudentsPD').select('*')
 
-    return res.json(cad_aluno)
+    return res.json(studentpd)
+})
+
+routes.get('/disciplinesbasic', async (req,res) => {
+
+    const disciplinesbasic = await connection('vw_disciplinesBasic')
+    .select('*')
+
+    return res.json(disciplinesbasic)
 })
 
 module.exports = routes
