@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'mysql2',
-    connection: 'mysql://jorginho:Mysql2020!@localhost:3306/db_sgce',
+    connection: 'mysql://sgce:P@ssw0rd@localhost:3306/db_sgce',
     migrations: {
       directory: 'src/database/migrations'
     }
