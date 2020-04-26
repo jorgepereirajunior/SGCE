@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './styles.css'
 
@@ -16,7 +17,7 @@ export default function Initial() {
                 <form>
                     <ul>
                         <li><button type="submit">Listar Departamentos</button></li>
-                        <li><button type="submit">Cadastrar Departamentos</button></li>
+                        <Link to="/dptregister"><li><button type="submit">Cadastrar Departamentos</button></li></Link>
                         <li><button type="submit">Listar Disciplinas</button></li>
                         <li><button type="submit">Cadastrar Disciplinas</button></li>
                     </ul>
